@@ -13,14 +13,19 @@ public class WFX_LightFlicker : MonoBehaviour
 	public float time = 0.05f;
 	
 	private float timer;
-	
-	void Start ()
-	{
-		timer = time;
-		StartCoroutine("Flicker");
-	}
-	
-	IEnumerator Flicker()
+
+    private void OnEnable()
+    {
+        timer = time;
+        StartCoroutine("Flicker");
+    }
+
+    private void OnDisable()
+    {
+		StopAllCoroutines();
+    }
+
+    IEnumerator Flicker()
 	{
 		while(true)
 		{

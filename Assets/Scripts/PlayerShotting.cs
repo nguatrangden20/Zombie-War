@@ -10,6 +10,7 @@ public class PlayerShotting : MonoBehaviour
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField]
     private Vector3 BulletSpreadVariance = new Vector3(0.1f, 0.1f, 0.1f);
+    [SerializeField] private GameObject effectFire;
 
     private float fireCount;
     public Vector3 direction;
@@ -37,6 +38,15 @@ public class PlayerShotting : MonoBehaviour
             }
 
             fireCount = 0;
+        }
+
+        if (inputManager.IsFirePress)
+        {
+            effectFire.SetActive(true);
+        }
+        else
+        {
+            effectFire.SetActive(false);
         }
     }
 
