@@ -32,7 +32,7 @@ public class ZombieController : MonoBehaviour, IHP
 
     public void ChangeState(IZombieState newState)
     {
-        currentState.Exit(this);
+        currentState?.Exit(this);
         currentState = newState;
         currentState.Enter(this);
     }
@@ -54,8 +54,7 @@ public class ZombieController : MonoBehaviour, IHP
         hp = data.HP;
         zombieCollider.enabled = true;
 
-        currentState = ChaseState;
-        currentState.Enter(this);
+        ChangeState(ChaseState);
     }
 
     void Update()

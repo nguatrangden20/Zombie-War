@@ -25,7 +25,7 @@ public class DeathState : IZombieState
         counter = 0;
         zombieCollider.enabled = false;
         agent.isStopped = true;
-        zombieAnimation.TriggerAnimation(AnimationName.Death);
+        zombieAnimation.PlayOnlyOneTrigger(TriggerName.Death);
     }
 
     public void Execute(ZombieController zombie)

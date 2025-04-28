@@ -19,7 +19,7 @@ public class AttackState : IZombieState
     {
         var distance = Vector3.Distance(zombie.transform.position, target.position);
 
-        if (TransitionsChaseSate(distance, zombie) || !zombieAnimation.IsAnimationDone(AnimationName.Attack)) return;
+        if (TransitionsChaseSate(distance, zombie) || !zombieAnimation.IsAnimationDone(TriggerName.Attack)) return;
 
         Vector3 direction = target.position - zombie.transform.position;
         direction.y = 0;
@@ -32,7 +32,7 @@ public class AttackState : IZombieState
             float angle = Quaternion.Angle(zombie.transform.rotation, targetRotation);
             if (angle <= data.RotationThreshold)
             {
-                zombieAnimation.TriggerAnimation(AnimationName.Attack);
+                zombieAnimation.TriggerAnimation(TriggerName.Attack);
             }
         }
     }
@@ -41,7 +41,7 @@ public class AttackState : IZombieState
     {
         if (distance > data.AttackDistance)
         {
-            if (zombieAnimation.IsAnimationDone(AnimationName.Attack))
+            if (zombieAnimation.IsAnimationDone(TriggerName.Attack))
             {
                 zombie.ChangeState(zombie.ChaseState);
             }

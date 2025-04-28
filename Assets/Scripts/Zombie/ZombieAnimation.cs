@@ -2,12 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum AnimationName
+public enum TriggerName
 {
     Damaged,
     Attack,
-    Death,
-    Chasing
+    Death
 }
 public class ZombieAnimation : MonoBehaviour
 {
@@ -16,13 +15,24 @@ public class ZombieAnimation : MonoBehaviour
 
     private Animator animator;
     private float animationBlendCount;
+    private string[] triggerNames;
 
-    public void TriggerAnimation(AnimationName name)
+    public void PlayOnlyOneTrigger(TriggerName name)
+    {
+        foreach (var triggerName in triggerNames)
+        {
+            animator.ResetTrigger(triggerName);
+        }
+
+        animator.SetTrigger(name.ToString());
+    }
+
+    public void TriggerAnimation(TriggerName name)
     {
         animator.SetTrigger(name.ToString());
     }
 
-    public bool IsAnimationDone(AnimationName name)
+    public bool IsAnimationDone(TriggerName name)
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
@@ -39,6 +49,7 @@ public class ZombieAnimation : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        triggerNames = Enum.GetNames(typeof(TriggerName));
     }
 
     private void Update()
@@ -53,6 +64,6 @@ public class ZombieAnimation : MonoBehaviour
         }
 
         animationBlendCount = Math.Clamp(animationBlendCount, 0f, 1f);
-        animator.SetFloat(AnimationName.Chasing.ToString(), animationBlendCount);
+        animator.SetFloat("Chasing", animationBlendCount);
     }
 }

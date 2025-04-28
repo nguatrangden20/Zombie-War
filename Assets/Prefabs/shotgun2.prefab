@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105296641160135250}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.20083053, y: -0.9634056, z: 0.15534073, w: -0.08594204}
-  m_LocalPosition: {x: 1.173603, y: -0.12141281, z: -3.7945979}
+  m_LocalRotation: {x: -0.12973091, y: -0.8680063, z: 0.220873, w: -0.42538238}
+  m_LocalPosition: {x: -0.069, y: 0.056, z: -0.139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4950940860367356468}
-  m_LocalEulerAnglesHint: {x: 72.396, y: 7.51, z: 285.61798}
+  m_LocalEulerAnglesHint: {x: 29.591, y: 128.433, z: 362.459}
 --- !u!1 &2933730726076267364
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 4950940860367356468}
   - component: {fileID: 3109184275270214459}
   - component: {fileID: 7088166944877997141}
+  - component: {fileID: 6348331175091294449}
+  - component: {fileID: 4716871689585443941}
   m_Layer: 0
   m_Name: shotgun2
   m_TagString: Untagged
@@ -119,6 +121,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6348331175091294449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933730726076267364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4716871689585443941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933730726076267364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e887d582fef7f1f42b96ea9c6070e72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPool: {fileID: 0}
+  inputManager: {fileID: 0}
+  FireRate: 0.5
+  BulletSpreadVariance: {x: 0.3, y: 0.3, z: 0.3}
+  barrel: {fileID: 2009207380676359191}
+  effectFire: {fileID: 2732257527647838689}
+  NumberBullet: 10
 --- !u!1 &8618819887364872566
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +315,11 @@ PrefabInstance:
 --- !u!4 &2732257527647550913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
+  m_PrefabInstance: {fileID: 2732257527647938375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2732257527647838689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
   m_PrefabInstance: {fileID: 2732257527647938375}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2732257527647838693 stripped

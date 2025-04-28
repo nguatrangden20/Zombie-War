@@ -20,7 +20,7 @@ public class DamagedState : IZombieState
         timer = 0;
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
-        zombieAnimation.TriggerAnimation(AnimationName.Damaged);
+        zombieAnimation.TriggerAnimation(TriggerName.Damaged);
 
         var effect = bloodPool.Pool.Get();
         effect.transform.parent = zombie.transform;
@@ -32,7 +32,7 @@ public class DamagedState : IZombieState
         timer += Time.deltaTime;
         if (timer < 0.2f) return;
 
-        if (zombieAnimation.IsAnimationDone(AnimationName.Damaged))
+        if (zombieAnimation.IsAnimationDone(TriggerName.Damaged))
         {
             zombie.ChangeState(zombie.ChaseState);
         }

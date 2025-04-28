@@ -7,9 +7,11 @@ public class C4 : MonoBehaviour
     public float explosionRadius;
     public float TimeDelay = 2f;
     public ParticleSystem effect;
+    public float Countdown = 2;
 
     private SphereCollider c4Collider;
     private float timer;
+    private float lastTimer = 0;
 
     private void Awake()
     {
@@ -17,9 +19,16 @@ public class C4 : MonoBehaviour
         explosionRadius = c4Collider.radius;
     }
 
-    private void OnEnable()
+    public void DropC4(Vector3 pos)
     {
-        timer = 0;
+        if (lastTimer + Countdown <= Time.time)
+        {
+            timer = 0;
+            lastTimer = Time.time;
+            transform.position = pos;
+            gameObject.SetActive(true);
+            effect.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
