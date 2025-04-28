@@ -8,6 +8,11 @@ public class PlayerAnimation : MonoBehaviour
     private Animator animator;
     private float animationBlendCount;
 
+    public void FireAnimation()
+    {
+        animator.SetTrigger("Fire");
+    }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -20,6 +25,12 @@ public class PlayerAnimation : MonoBehaviour
 
     private void AnimationMovement()
     {
+        if (inputManager.IsFirePress)
+        {
+            animator.SetFloat("Speed", 0);
+            return;
+        }
+
         if (inputManager.detalMovement == Vector2.zero)
         {
             animationBlendCount -= Time.deltaTime * 20;
