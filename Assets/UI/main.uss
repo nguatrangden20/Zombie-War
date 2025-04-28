@@ -19,3 +19,17 @@
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
 }
+
+.joystick-back {
+    width: 256px;
+    height: 256px;
+    background-image: url("project://database/Assets/Material/VirtualJoystickPack/JoystickSplitted.png?fileID=2800000&guid=d98ab4e61ffcfc04099d575848dcd1c7&type=3#JoystickSplitted");
+}
+
+.joystick-handle {
+    top: 25%;
+    left: 25%;
+    width: 128px;
+    height: 128px;
+    background-image: url("project://database/Assets/Material/VirtualJoystickPack/LargeHandleFilledGrey.png?fileID=2800000&guid=cd09da1bd25437e4a811521b37442a6b&type=3#LargeHandleFilledGrey");
+}

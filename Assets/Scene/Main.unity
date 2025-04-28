@@ -4179,6 +4179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 932532514}
     - target: {fileID: 8954074514042887452, guid: c332874ef6c974842984e30f844f55ed, type: 3}
+      propertyPath: Countdown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954074514042887452, guid: c332874ef6c974842984e30f844f55ed, type: 3}
       propertyPath: InputManager
       value: 
       objectReference: {fileID: 713106041}
