@@ -27,44 +27,15 @@ public class PlayerMovement : MonoBehaviour
     private void Rotation()
     {
         if (inputManager.IsFirePress)
-            RotationBaseFire();
+            Rotation(inputManager.DetalLook);
         else
-            RotationBaseMovement();
+            Rotation(inputManager.DetalMovement);
     }
-    public Vector3 look;
-    public Vector3 move;
-    private void RotationBaseFire()
+    private void Rotation(Vector2 detal)
     {
-        /*if (inputManager.PosLook == Vector2.zero) return;
-        Ray ray = Camera.main.ScreenPointToRay(inputManager.PosLook);
+        if (detal == Vector2.zero) return;
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f))
-        {
-            Vector3 targetPoint = hitInfo.point;
-            Vector3 directionMouse = targetPoint - transform.position;
-            directionMouse.y = 0f;
-
-            if (directionMouse.sqrMagnitude > 0.01f)
-            {
-                Quaternion targetRotationMouse = Quaternion.LookRotation(directionMouse);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotationMouse, speedRotation * Time.deltaTime);
-            }
-        }*/
-
-        look = inputManager.PosLook;
-        if (inputManager.PosLook == Vector2.zero) return;
-        Vector3 direction = new Vector3(inputManager.PosLook.x, 0f, inputManager.PosLook.y);
-
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, speedRotation * Time.deltaTime);
-    }
-    private void RotationBaseMovement()
-    {
-        move = inputManager.DetalMovement;
-        if (inputManager.DetalMovement == Vector2.zero) return;
-
-        Vector3 direction = new Vector3(inputManager.DetalMovement.x, 0f, inputManager.DetalMovement.y);
+        Vector3 direction = new Vector3(detal.x, 0f, detal.y);
 
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 

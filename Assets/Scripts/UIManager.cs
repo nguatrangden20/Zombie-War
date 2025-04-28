@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
         {
             if (x == Vector2.zero) inputManager.IsFirePress = false;
             else inputManager.IsFirePress = true;
-            inputManager.PosLook = new Vector2(x.x, -x.y);
+            inputManager.DetalLook = new Vector2(x.x, -x.y);
         };
     }
 

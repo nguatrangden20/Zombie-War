@@ -4,7 +4,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public Vector2 DetalMovement {  get; set; }
-    public Vector2 PosLook { get; set; }
+    public Vector2 DetalLook { get; set; }
 
     public bool IsFirePress { get; set; }
 
