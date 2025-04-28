@@ -32,6 +32,8 @@ public class DeathState : IZombieState
     {
         counter += Time.deltaTime * 0.5f;
         material.SetFloat("_Dissolve", Mathf.Clamp01(counter));
+
+        if (counter >= 1) zombie.ReturnToPool();
     }
 
     public void Exit(ZombieController zombie)

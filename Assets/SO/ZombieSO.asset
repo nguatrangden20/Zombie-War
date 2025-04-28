@@ -16,3 +16,5 @@ MonoBehaviour:
   RotationSpeed: 5
   RotationThreshold: 5
   DestinationRefreshRate: 1
+  HP: 10
+  AttackDamage: 10

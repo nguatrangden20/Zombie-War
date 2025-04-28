@@ -29,7 +29,6 @@ public class Explode : MonoBehaviour
     {
         if (!isExploded) return;
 
-        Debug.Log(velocity);
         transform.position += velocity * Time.deltaTime;
 
         velocity = Vector3.Lerp(velocity, Vector3.zero, Time.deltaTime * deceleration);

@@ -9,7 +9,7 @@ public class GenericPool<T> : MonoBehaviour where T : MonoBehaviour
     public bool collectionChecks = true;
     public int maxPoolSize = 1000;
 
-    [SerializeField] private T prefab;
+    [SerializeField] protected T prefab;
 
     private IObjectPool<T> pool;
 
@@ -23,7 +23,7 @@ public class GenericPool<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    private T CreatePooledItem()
+    protected virtual T CreatePooledItem()
     {
         var obj = Instantiate(prefab, transform);
         var poolable = obj.GetComponent<IPoolable>();
