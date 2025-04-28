@@ -1559,8 +1559,8 @@ GameObject:
   m_Component:
   - component: {fileID: 533620054}
   - component: {fileID: 533620053}
-  - component: {fileID: 533620052}
   - component: {fileID: 533620055}
+  - component: {fileID: 533620056}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -1568,24 +1568,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &533620052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533620051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 249a3f9b4f9e49f4ab0f549a273637a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeUpdateDestination: 1
-  Target: {fileID: 932532514}
-  attackDistance: 1.5
-  rotationThreshold: 10
-  rotationSpeed: 5
-  zombieAnimation: {fileID: 4972802056150416756}
 --- !u!136 &533620053
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1606,9 +1588,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.6
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!4 &533620054
 Transform:
   m_ObjectHideFlags: 0
@@ -1647,6 +1629,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &533620056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533620051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24233c2b466bb948ba95c79d5ade822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taget: {fileID: 932532514}
+  data: {fileID: 11400000, guid: a70992daa4ac11842b25496ca488f7c0, type: 2}
+  zombieAnimation: {fileID: 4972802056150416756}
 --- !u!1001 &549106128
 PrefabInstance:
   m_ObjectHideFlags: 0

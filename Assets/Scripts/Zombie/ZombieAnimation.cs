@@ -5,7 +5,9 @@ using UnityEngine.AI;
 public enum AnimationName
 {
     Damaged,
-    Attack
+    Attack,
+    Death,
+    Chasing
 }
 public class ZombieAnimation : MonoBehaviour
 {
@@ -17,7 +19,6 @@ public class ZombieAnimation : MonoBehaviour
 
     public void TriggerAnimation(AnimationName name)
     {
-        Debug.Log(name);
         animator.SetTrigger(name.ToString());
     }
 
@@ -31,6 +32,7 @@ public class ZombieAnimation : MonoBehaviour
         }
 
         animator.ResetTrigger(name.ToString());
+
         return true;
     }
 
@@ -51,6 +53,6 @@ public class ZombieAnimation : MonoBehaviour
         }
 
         animationBlendCount = Math.Clamp(animationBlendCount, 0f, 1f);
-        animator.SetFloat("Chasing", animationBlendCount);
+        animator.SetFloat(AnimationName.Chasing.ToString(), animationBlendCount);
     }
 }

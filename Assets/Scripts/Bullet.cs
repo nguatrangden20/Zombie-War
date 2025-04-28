@@ -24,15 +24,15 @@ public class Bullet : MonoBehaviour
 
     public void StartBullet(Vector3 HitPoint, RaycastHit hit)
     {
-        ZombieStateMachine zombie = null;
+        IHP DamageAble = null;
         if (hit.collider != null)
         {
-            zombie = hit.collider.gameObject.GetComponent<ZombieStateMachine>();
+            DamageAble = hit.collider.gameObject.GetComponent<IHP>();
         }
-        StartCoroutine(SpawnTrail(trail, HitPoint, zombie));
+        StartCoroutine(SpawnTrail(trail, HitPoint, DamageAble));
     }
 
-    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, ZombieStateMachine zombie)
+    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, IHP DamageAble)
     {
         Vector3 startPosition = Trail.transform.position;
         float distance = Vector3.Distance(Trail.transform.position, HitPoint);
@@ -49,9 +49,9 @@ public class Bullet : MonoBehaviour
 
         yield return new WaitForSeconds(Trail.time);
 
-        if (zombie != null)
+        if (DamageAble != null)
         {
-            zombie.HP -= Damage;
+            DamageAble.HP -= Damage;
         }
 
         pool.Release(this);
