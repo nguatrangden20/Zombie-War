@@ -1,10 +1,11 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 [UxmlElement]
 public partial class VirtualJoystick : VisualElement
 {
+    public Action<Vector2> OnDeltaChange;
     public Vector2 joystickDelta; // Between -1 and 1
 
     private Vector2 joystickPointerDownPosition;
@@ -39,6 +40,7 @@ public partial class VirtualJoystick : VisualElement
         joystickHandle.ReleasePointer(e.pointerId);
         joystickHandle.transform.position = Vector3.zero;
         joystickDelta = Vector2.zero;
+        OnDeltaChange?.Invoke(joystickDelta);
     }
 
     void OnPointerMove(PointerMoveEvent e)
@@ -51,6 +53,7 @@ public partial class VirtualJoystick : VisualElement
             pointerMaxDelta);
         joystickHandle.transform.position = pointerDelta;
         joystickDelta = pointerDelta / pointerMaxDelta;
+        OnDeltaChange?.Invoke(joystickDelta);
     }
 
     static Vector2 Clamp(Vector2 v, Vector2 min, Vector2 max) =>

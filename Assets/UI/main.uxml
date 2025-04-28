@@ -2,6 +2,8 @@
     <Style src="project://database/Assets/UI/main.uss?fileID=7433441132597879392&amp;guid=687465005c77b2348838b18a5027d8d1&amp;type=3#main" />
     <engine:VisualElement name="container" style="flex-grow: 1;">
         <UI_HP name="container" progress="1" />
+        <engine:Button text="Switch" name="Switch" style="position: absolute; bottom: 227px; right: 266px; width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Material/VirtualJoystickPack/Joystick.png?fileID=2800000&amp;guid=39071ed0028987945928b5e9c2a34760&amp;type=3#Joystick&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <engine:Button text="C4" name="C4" style="position: absolute; bottom: 287px; right: 131px; width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Material/VirtualJoystickPack/Joystick.png?fileID=2800000&amp;guid=39071ed0028987945928b5e9c2a34760&amp;type=3#Joystick&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
     </engine:VisualElement>
     <VirtualJoystick name="Movement" style="position: absolute; bottom: 0; left: 0;" />
     <VirtualJoystick name="LookFire" style="position: absolute; right: 0; bottom: 0;" />

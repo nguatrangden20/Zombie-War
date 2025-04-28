@@ -31,7 +31,7 @@ public class PlayerAnimation : MonoBehaviour
             return;
         }
 
-        if (inputManager.detalMovement == Vector2.zero)
+        if (inputManager.DetalMovement == Vector2.zero)
         {
             animationBlendCount -= Time.deltaTime * 20;
         }

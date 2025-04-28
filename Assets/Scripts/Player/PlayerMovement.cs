@@ -15,14 +15,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Movement();
         Rotation();
-        DrawLineShoot();
     }
 
     private void Movement()
     {
         if (inputManager.IsFirePress) return;
 
-        var detalMove = inputManager.detalMovement * speedMove * Time.deltaTime;
+        var detalMove = inputManager.DetalMovement * speedMove * Time.deltaTime;
         characterController.Move(new Vector3(detalMove.x, 0, detalMove.y));
     }
     private void Rotation()
@@ -32,9 +31,11 @@ public class PlayerMovement : MonoBehaviour
         else
             RotationBaseMovement();
     }
+    public Vector3 look;
+    public Vector3 move;
     private void RotationBaseFire()
     {
-        if (inputManager.PosLook == Vector2.zero) return;
+        /*if (inputManager.PosLook == Vector2.zero) return;
         Ray ray = Camera.main.ScreenPointToRay(inputManager.PosLook);
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f))
@@ -48,30 +49,25 @@ public class PlayerMovement : MonoBehaviour
                 Quaternion targetRotationMouse = Quaternion.LookRotation(directionMouse);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotationMouse, speedRotation * Time.deltaTime);
             }
-        }
-    }
-    private void RotationBaseMovement()
-    {
-        if (inputManager.detalMovement == Vector2.zero) return;
+        }*/
 
-        Vector3 direction = new Vector3(inputManager.detalMovement.x, 0f, inputManager.detalMovement.y);
+        look = inputManager.PosLook;
+        if (inputManager.PosLook == Vector2.zero) return;
+        Vector3 direction = new Vector3(inputManager.PosLook.x, 0f, inputManager.PosLook.y);
 
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, speedRotation * Time.deltaTime);
     }
-
-    public Vector3 LastPointer = Vector3.zero;
-    private void DrawLineShoot()
+    private void RotationBaseMovement()
     {
-        Debug.DrawLine(transform.position, LastPointer, Color.red);
+        move = inputManager.DetalMovement;
+        if (inputManager.DetalMovement == Vector2.zero) return;
 
-        if (!inputManager.IsFirePress) return;
+        Vector3 direction = new Vector3(inputManager.DetalMovement.x, 0f, inputManager.DetalMovement.y);
 
-        Ray ray = Camera.main.ScreenPointToRay(inputManager.PosLook);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f))
-        {
-            LastPointer = hitInfo.point;
-        }
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, speedRotation * Time.deltaTime);
     }
 }
