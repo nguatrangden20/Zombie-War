@@ -23,6 +23,8 @@ public class ZombieController : MonoBehaviour, IHP
     [SerializeField] private ZombieSO data;
     [SerializeField] private ZombieAnimation zombieAnimation;
     [SerializeField] private Collider zombieCollider;
+    [SerializeField] private BloodPool bloodPool;
+    [SerializeField] private Renderer zombieRender;
 
     private NavMeshAgent agent;
     private IZombieState currentState;
@@ -43,8 +45,8 @@ public class ZombieController : MonoBehaviour, IHP
 
         AttackState = new AttackState(data, taget, zombieAnimation);
         ChaseState = new ChaseState(taget, data, agent);
-        DamagedState = new DamagedState(zombieAnimation, agent);
-        DeathState = new DeathState(zombieAnimation, agent, zombieCollider);
+        DamagedState = new DamagedState(zombieAnimation, agent, bloodPool);
+        DeathState = new DeathState(zombieAnimation, agent, zombieCollider, zombieRender.material);
     }
 
     private void OnEnable()

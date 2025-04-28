@@ -2,13 +2,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPoolable
 {
     public float Damage = 10;
     public IObjectPool<Bullet> pool;
 
     [SerializeField] private float speed = 10;
     private TrailRenderer trail;
+
+    public void SetPool<T>(IObjectPool<T> pool) where T : class
+    {
+        this.pool = pool as IObjectPool<Bullet>;
+    }
 
     private void Awake()
     {
