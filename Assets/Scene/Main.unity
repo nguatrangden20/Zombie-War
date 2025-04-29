@@ -5079,7 +5079,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
-  difficultyIncreaseInterval: 10
+  difficultyIncreaseInterval: 30
 --- !u!4 &2013841965
 Transform:
   m_ObjectHideFlags: 0

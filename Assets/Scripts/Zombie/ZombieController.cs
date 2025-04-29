@@ -83,6 +83,11 @@ public class ZombieController : MonoBehaviour, IHP, IPoolable
 
     void Update()
     {
+        if (PlayerHeath.IsGameOver)
+        {
+            HP = 0;
+        }
+
         currentState.Execute(this);
 
         if (Vector3.Distance(transform.position, Target.position) > 15f)

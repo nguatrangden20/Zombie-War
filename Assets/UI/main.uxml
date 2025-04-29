@@ -4,7 +4,12 @@
         <UI_HP name="container" progress="1" />
         <engine:Button text="Switch" name="Switch" style="position: absolute; bottom: 227px; right: 266px; width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Material/VirtualJoystickPack/Joystick.png?fileID=2800000&amp;guid=39071ed0028987945928b5e9c2a34760&amp;type=3#Joystick&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
         <engine:Button text="C4" name="C4" style="position: absolute; bottom: 287px; right: 131px; width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Material/VirtualJoystickPack/Joystick.png?fileID=2800000&amp;guid=39071ed0028987945928b5e9c2a34760&amp;type=3#Joystick&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <VirtualJoystick name="Movement" style="position: absolute; bottom: 0; left: 0;" />
+        <VirtualJoystick name="LookFire" style="position: absolute; right: 0; bottom: 0;" />
+        <engine:Label text="1" name="timeCount" style="font-size: 50px; position: absolute; top: 0; width: 100%; -unity-text-align: middle-center; -unity-font-style: bold;" />
     </engine:VisualElement>
-    <VirtualJoystick name="Movement" style="position: absolute; bottom: 0; left: 0;" />
-    <VirtualJoystick name="LookFire" style="position: absolute; right: 0; bottom: 0;" />
+    <engine:VisualElement name="GameOver" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color: rgba(0, 0, 0, 0.65); justify-content: center; align-items: center; display: none;">
+        <engine:Label text="GameOver" name="title" style="font-size: 100px; color: rgb(255, 255, 255); -unity-text-align: middle-center;" />
+        <engine:Button text="Restart" name="restart" style="font-size: 100px; width: 660px; border-top-left-radius: 35px; border-top-right-radius: 35px; border-bottom-right-radius: 35px; border-bottom-left-radius: 35px;" />
+    </engine:VisualElement>
 </engine:UXML>

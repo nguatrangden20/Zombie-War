@@ -6,6 +6,7 @@ public class PlayerHeath : MonoBehaviour, IHP
     [SerializeField] private UIDocument document;
     [SerializeField] private BloodPool bloodPool;
     private UI_HP uiHP;
+    public static bool IsGameOver = false;
 
     public float HP
     {
@@ -22,6 +23,7 @@ public class PlayerHeath : MonoBehaviour, IHP
 
     private void Awake()
     {
+        IsGameOver = false;
         hp = 100;
         uiHP = document.rootVisualElement.Query<UI_HP>();
     }
@@ -35,6 +37,7 @@ public class PlayerHeath : MonoBehaviour, IHP
 
     private void Death()
     {
-
+        IsGameOver = true;
+        document.gameObject.GetComponent<UIManager>().ShowGameOver();
     }
 }

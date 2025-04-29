@@ -26,6 +26,11 @@ public class InputManager : MonoBehaviour
         inputActions.Player.Attack.canceled += Attack_canceled;
     }
 
+    private void Update()
+    {
+        if (PlayerHeath.IsGameOver) gameObject.SetActive(false);
+    }
+
     private void Attack_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
        // IsFirePress = false;

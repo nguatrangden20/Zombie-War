@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerHeath.IsGameOver) return;
+
         if (Time.time >= nextSpawnTime)
         {
             SpawnZombieAroundPlayer();
