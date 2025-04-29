@@ -23,6 +23,7 @@ public class Shotgun : Gun
 
     private IEnumerator HandleEffect()
     {
+        SoundManager.Instance.PlaySFX(SoundType.ShotGun);
         effectFire.SetActive(true);
         yield return new WaitForSeconds(timeEffect);
         effectFire.SetActive(false);

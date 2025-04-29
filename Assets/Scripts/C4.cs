@@ -37,6 +37,8 @@ public class C4 : MonoBehaviour
         if (timer > TimeDelay)
         {
             c4Collider.enabled = true;
+            if (!effect.gameObject.activeSelf)
+                SoundManager.Instance.PlaySFX(SoundType.Explosion);
             effect.gameObject.SetActive(true);
         }
 
