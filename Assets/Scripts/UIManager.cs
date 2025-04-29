@@ -57,14 +57,7 @@ public class UIManager : MonoBehaviour
 
         if (currentTime <= 0f)
         {
-            if (SceneManager.GetActiveScene().name == "Main")
-            {
-                SceneManager.LoadScene("Level2");
-            }
-            else
-            {
-                ShowPopupWin();
-            }
+            ShowPopupWin();
         }
     }
 
